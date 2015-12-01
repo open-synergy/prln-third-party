@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+<!-- Adding the fields from product.product to the screen -->
+        <record id="product_normal_form_view" model="ir.ui.view">
+            <field name="name">base.product.defaults.product.form</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_normal_form_view"/>
+            <field name="arch" type="xml">
+                <field name='name' position='after'>
+                    <field name="dus"/>
+                </field>
+            </field>
+        </record>
+    </data>
+</openerp>

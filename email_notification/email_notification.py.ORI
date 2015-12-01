@@ -1,0 +1,16 @@
+from openerp.osv import orm
+import sendmail
+class stock_picking(orm.Model):
+	_name = 'stock.picking'
+	_inherit = 'stock.picking'
+	def create(self,cr,uid,ids,context=None):
+		id2 = super(stock_picking,self).create(cr,uid,ids,context=context)
+		sp_obj = self.pool.get('stock.picking')
+		sp_info = sp_obj.read(cr, uid, id2, ['name'])
+		id2_name = sp_info['name']
+		user_obj = self.pool.get('res.users')
+		username = user_obj.read(cr,uid,uid,['name'])
+		username2 = username['name']
+		pesan = "%s%s\r\n%s"%('Info Create DO : ',username2,id2_name)
+		sendmail.sendmail('erp@pralon.com','hans@pralon.com','Warning Manual DO Create',pesan)
+		return id2

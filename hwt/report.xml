@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+	<report auto="False"
+                id="hwt_do_adv"
+                model="stock.picking"
+                name="webkit_stock_picking"
+                file="hwt/delivery_order_adv.mako"
+                header="False" 
+                string="Advance DO"
+                report_type="webkit"/>
+	<report auto="False"
+                id="hwt_voucher_adv"
+                model="account.move"
+                name="webkit_journal_voucher2"
+                file="hwt/voucher_adv.mako"
+                header="False" 
+                string="Adv Voucher"
+                report_type="webkit"/>
+	<report auto="False"
+                id="hwt_quotation_adv"
+                model="sale.order"
+                name="webkit_sales_quotation2"
+                file="hwt/quotation_adv.mako"
+                header="False" 
+                string="Draft SO"
+                report_type="webkit"/>
+    </data>
+</openerp>
